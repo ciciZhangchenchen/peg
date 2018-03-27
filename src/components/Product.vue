@@ -1,5 +1,5 @@
 <template>
-  <div>dashbord</div>
+  <div>product</div>
 </template>
 
 <style lang="scss">
