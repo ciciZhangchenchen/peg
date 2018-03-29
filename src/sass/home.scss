@@ -88,6 +88,7 @@
 .el-submenu__title {
   color: $--color-white;
   padding: 0 40px;
+  text-align: left;
 }
 .el-menu-item {
   color: $--color-white;
@@ -100,4 +101,7 @@
 }
 .el-menu-item:focus, .el-menu-item:hover {
   background: $--color-primary-hover;
+}
+.el-menu--collapse {
+  width: 80px;
 }

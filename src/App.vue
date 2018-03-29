@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container>
-      <el-menu @open="handleOpen" @close="handleClose" :collapse="isCollapse" router>
+      <el-menu class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" router>
         <div class="hello">
           <div class="title" v-if="!isCollapse">后台管理系统</div>
           <div class="user">
@@ -12,7 +12,7 @@
           </div>
         </div>
         <el-submenu index="1">
-          <template slot="title"><i class="el-icon-message"></i><span slot="title">商城</span></template>
+          <template slot="title"><i class="iconpet-homepage" style="margin: 0 10px"></i><span slot="title">商城</span></template>
           <el-menu-item-group>
             <el-menu-item index="/Product">商品管理</el-menu-item>
             <el-menu-item index="1-2">商品计费下单</el-menu-item>
@@ -21,14 +21,14 @@
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="2">
-          <template slot="title"><i class="el-icon-message"></i><span slot="title">订单管理</span></template>
+          <template slot="title"><i class="iconpet-order" style="margin: 0 10px"></i><span slot="title">订单管理</span></template>
           <el-menu-item-group>
             <el-menu-item index="2-1">商户端下单</el-menu-item>
             <el-menu-item index="2-2">历史订单查询</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="3">
-          <template slot="title"><i class="el-icon-message"></i><span slot="title">预约管理</span></template>
+          <template slot="title"><i class="iconpet-businesscard" style="margin: 0 10px"></i><span slot="title">预约管理</span></template>
           <el-menu-item-group>
             <el-menu-item index="3-1">预约列表</el-menu-item>
             <el-menu-item index="3-2">Option 2</el-menu-item>
@@ -36,7 +36,7 @@
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="4">
-          <template slot="title"><i class="el-icon-message"></i><span slot="title">会员管理</span></template>
+          <template slot="title"><i class="iconpet-people" style="margin: 0 10px"></i><span slot="title">会员管理</span></template>
           <el-menu-item-group>
             <el-menu-item index="/Member">会员列表</el-menu-item>
             <el-menu-item index="4-2">自定义会员积分抵扣规则</el-menu-item>
@@ -44,13 +44,13 @@
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="5">
-          <template slot="title"><i class="el-icon-message"></i><span slot="title">报表</span></template>
+          <template slot="title"><i class="iconpet-headlines" style="margin: 0 10px"></i><span slot="title">报表</span></template>
           <el-menu-item-group>
             <el-menu-item index="5-1">营业额查询</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="6">
-          <template slot="title"><i class="el-icon-message"></i><span slot="title">多账号管理</span></template>
+          <template slot="title"><i class="iconpet-group" style="margin: 0 10px"></i><span slot="title">多账号管理</span></template>
           <el-menu-item-group>
             <el-menu-item index="6-1">多账号管理</el-menu-item>
           </el-menu-item-group>
@@ -60,8 +60,8 @@
         <el-header>
           <div class="header-left">
             <div class="btn-collapse" @click="isCollapse = !isCollapse">
-              <span class="close" v-if="isCollapse">展开</span>
-              <span class="open" v-if="!isCollapse">收起</span>
+              <span class="close iconpet-other" v-if="isCollapse"></span>
+              <span class="open iconpet-switch" v-if="!isCollapse"></span>
             </div>
           </div>
           <div class="header-right">
@@ -81,10 +81,14 @@
         </el-main>
       </el-container>
     </el-container>
-
   </div>
 </template>
-
+<style>
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
+</style>
 <script>
 export default {
   name: 'App',
@@ -105,6 +109,7 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "./assets/font/iconfont.css";
   @import "./sass/home.scss";
   body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }
   body { background:#f5f5f5; overflow: hidden; color:#555; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; width: 100%;height:100%; }
