@@ -15,9 +15,7 @@
           <template slot="title"><i class="iconpet-homepage" style="margin: 0 10px"></i><span slot="title">商城</span></template>
           <el-menu-item-group>
             <el-menu-item index="/Product">商品管理</el-menu-item>
-            <el-menu-item index="1-2">商品计费下单</el-menu-item>
             <el-menu-item index="1-3">商品自定义分类</el-menu-item>
-            <el-menu-item index="1-4">会员日(促销活动)自定义</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="2">
@@ -55,6 +53,12 @@
             <el-menu-item index="6-1">多账号管理</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
+        <el-submenu index="7">
+          <template slot="title"><i class="iconpet-group" style="margin: 0 10px"></i><span slot="title">会员日</span></template>
+          <el-menu-item-group>
+            <el-menu-item index="6-1">会员日</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
       </el-menu>
       <el-container>
         <el-header>
@@ -64,16 +68,13 @@
               <span class="open iconpet-switch" v-if="!isCollapse"></span>
             </div>
           </div>
-          <div class="header-right">
+          <div class="header-right" style="padding-top: 22px">
             <el-dropdown>
-              <i class="el-icon-setting" style="margin-right: 15px"></i>
+              <i class="el-icon-setting"></i>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>View</el-dropdown-item>
-                <el-dropdown-item>Add</el-dropdown-item>
-                <el-dropdown-item>Delete</el-dropdown-item>
+                <el-dropdown-item>退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
-            <span>Tom</span>
           </div>
         </el-header>
         <el-main>
