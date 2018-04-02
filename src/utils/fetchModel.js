@@ -1,6 +1,14 @@
 import Vue from 'vue'
 
-const baseUrl = ''
+const baseUrl = 'http://www.isummer.site:6880/api'
+
+function jsonToUrlParams (json) {
+  let url = ''
+  for (let i in json) {
+    url += `&${i}=${json[i]}`
+  }
+  return url.substr(1, url.length - 1)
+}
 
 function fetch (api, method = 'post') {
   api.param = api.param || {}
@@ -9,22 +17,22 @@ function fetch (api, method = 'post') {
       baseUrl + api.url,
       api.param,
       {
-        'Content-Type': 'application/json;charset=utf-8',
-        'Access-Control-Allow-Origin': ''
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
     ).then((res) => {
-      return res
+      return res.body
     }).catch((err) => {
       console.log(err)
     })
   } else if (!api.isMock && method.toLowerCase() === 'get') {
+    const getUrl = `${baseUrl}${api.url}?${jsonToUrlParams(api.param)}`
     return Vue.http.get(
-      baseUrl + api.url,
+      getUrl,
       {
-        'Content-Type': 'application/json;charset=utf-8'
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
     ).then((res) => {
-      return res
+      return res.body
     }).catch((err) => {
       console.log(err)
     })
@@ -32,7 +40,7 @@ function fetch (api, method = 'post') {
     return Vue.http.get(
       api.mockUrl,
       {
-        'Content-Type': 'application/json;charset=utf-8'
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
     ).then((res) => {
       return res
@@ -43,9 +51,12 @@ function fetch (api, method = 'post') {
 }
 
 export function fetchApiDemo (param) {
+  param = {
+    sample1: 1234
+  }
   return fetch({
-    isMock: true,
-    url: '',
+    isMock: false,
+    url: '/test/test.json',
     mockUrl: '../../static/demo.json',
     param
   })

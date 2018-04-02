@@ -65,7 +65,8 @@ export default {
     })
     fetchApiDemo().then((res) => {
       setTimeout(() => {
-        this.Product = res.body
+        console.log(res)
+        // this.Product = res.body
         this.$loading().close()
       }, 1000)
     })
