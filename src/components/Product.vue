@@ -1,9 +1,10 @@
 <template>
   <div>
     <el-row>
-      <el-button-group>
-        <el-button plain icon="el-icon-search"></el-button>
-      </el-button-group>
+      <el-input
+        placeholder="请输入内容"
+        prefix-icon="el-icon-search">
+      </el-input>
     </el-row>
     <el-table :data="Product" stripe>
       <el-table-column prop="id" label="商品ID" width="140">
@@ -40,7 +41,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .el-row {
     text-align: left;
     margin-bottom: 20px;
